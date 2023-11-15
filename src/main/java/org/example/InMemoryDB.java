@@ -19,6 +19,12 @@ public class InMemoryDB {
             case "CREATE"->{
                return create(table,data);
             }
+            case "FIND"->{
+
+            }
+            case "FIND_ALL"->{
+
+            }
         }
         return  null;
     }
@@ -82,5 +88,8 @@ public class InMemoryDB {
             }
         }
         return response;
+    }
+    private <T> T find(String table,String s){
+        return (T)s;
     }
 }
