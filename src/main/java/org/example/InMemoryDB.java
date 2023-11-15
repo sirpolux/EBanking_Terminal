@@ -1,5 +1,4 @@
 package org.example;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -8,14 +7,11 @@ public class InMemoryDB {
     private  ArrayList<User> users;
     private ArrayList <Account> accounts;
 
-    private HashMap<Integer,ArrayList<Integer>> tractionTracking;
+    private HashMap<Long,ArrayList<Integer>> transactionTracking;
     private HashMap<String,Integer> usersTracking;
     private HashMap<String, Integer> accountTracing;
 
     //CRUDE OPERATIONS
-
-    //CREATE
-
 
     public  <T> Response command(String command, String table, T data){
         switch (command){
@@ -46,7 +42,18 @@ public class InMemoryDB {
                 }
             }
             case "transaction"->{
+                if (this.transactions==null){
+                    transactions=new ArrayList<>();
+                    transactionTracking = new HashMap<>();
+                }
                 Transaction transaction = (Transaction) data;
+                transactions.add(transaction);
+                if(transactionTracking.containsKey(transaction.getAccount())){
+                    //Retrieve all transaction for user
+
+                }
+
+
                 //GE
             }
         }
