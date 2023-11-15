@@ -38,7 +38,7 @@ public class InMemoryDB {
                     users.add(user);
                     usersTracking.put(user.getEmail(),users.size()-1);
                     response.setMsg("Account created for user:  "+ usersTracking.get(user.getEmail()));
-                    response.setStatus(0);
+                    response.setStatus(1);
                 }
             }
             case "transaction"->{
@@ -48,14 +48,21 @@ public class InMemoryDB {
                 }
                 Transaction transaction = (Transaction) data;
                 transactions.add(transaction);
-                if(transactionTracking.containsKey(transaction.getAccount())){
+                if(transactionTracking.containsKey(transaction.getAccount().getAccountNumber())){
                     //Retrieve all transaction for user
-
-
+                    ArrayList<Integer> myTransactions = transactionTracking.get(transaction.getAccount().getAccountNumber());
+                    myTransactions.add(transactions.size()-1);
+                    transactionTracking.put(transaction.getAccount().getAccountNumber(),myTransactions);
+                }else {
+                    ArrayList<Integer> myTransaction =  new ArrayList<>();
+                    myTransaction.add(transactions.size()-1);
+                    transactionTracking.put(transaction.getAccount().getAccountNumber(),myTransaction);
                 }
+                response.setMsg("Transaction completed for  "+ transaction.getAccount().getPerson().getName());
+                response.setStatus(0);
+            }
+            case ""->{
 
-
-                //GE
             }
         }
         return response;
