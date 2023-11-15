@@ -1,6 +1,7 @@
 package org.example;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class InMemoryDB {
     private ArrayList<Transaction> transactions;
@@ -9,7 +10,7 @@ public class InMemoryDB {
 
     private HashMap<Long,ArrayList<Integer>> transactionTracking;
     private HashMap<String,Integer> usersTracking;
-    private HashMap<String, Integer> accountTracing;
+    private HashMap<Long, Integer> accountTracking;
 
     //CRUDE OPERATIONS
 
@@ -61,8 +62,23 @@ public class InMemoryDB {
                 response.setMsg("Transaction completed for  "+ transaction.getAccount().getPerson().getName());
                 response.setStatus(0);
             }
-            case ""->{
-
+            case "account"->{
+                if(this.accounts==null){
+                    accounts=new ArrayList<>();
+                    accountTracking=new HashMap<>();
+                }
+                //
+                Random random = new Random();
+                long lowerBound = 11000000000L;
+                long upperBound = 99999999999L;
+                Long acc=random.nextLong(lowerBound,upperBound);
+                while (accounts.contains(acc)){
+                    acc=random.nextLong(lowerBound,upperBound);
+                }
+                Account account = (Account) data;
+                account.setAccountNumber(acc);
+                accounts.add(account);
+                accountTracking.put(account.getAccountNumber(),accountTracking.size()-1);
             }
         }
         return response;
