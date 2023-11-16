@@ -89,7 +89,7 @@ public class InMemoryDB {
         }
         return response;
     }
-    private <T> T find(String table,String s){
-        return (T)s;
+    private <T> Account findAccount(String table){
+        return null;
     }
 }
