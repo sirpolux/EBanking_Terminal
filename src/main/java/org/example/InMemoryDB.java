@@ -2,6 +2,7 @@ package org.example;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class InMemoryDB {
     private ArrayList<Transaction> transactions;
@@ -100,7 +101,18 @@ public class InMemoryDB {
     }
 
     private ArrayList<Transaction> getAllTransaction(Long accountNumber){
+        //CHECK IF USER TRANSACTION EXITS.
+        if(transactionTracking.containsKey(accountNumber)){
+            //RETRIEVE TRANSACTIONS
+            ArrayList<Integer> transactionList =  transactionTracking.get(accountNumber);
+            ArrayList<Transaction> myTransactions= (ArrayList<Transaction>) transactionList.stream().map(this::getTransaction).toList();
+            return myTransactions;
+        }
         return null;
+    }
+
+    private Transaction getTransaction(Integer index){
+        return transactions.get(index);
     }
 
 }
