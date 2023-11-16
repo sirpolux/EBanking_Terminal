@@ -115,4 +115,10 @@ public class InMemoryDB {
         return transactions.get(index);
     }
 
+    private User getUser(String email){
+        if(usersTracking.containsKey(email)){
+            return users.get(usersTracking.get(email));
+        }
+        return  null;
+    }
 }
