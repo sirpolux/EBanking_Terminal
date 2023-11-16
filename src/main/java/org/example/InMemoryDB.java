@@ -89,7 +89,14 @@ public class InMemoryDB {
         }
         return response;
     }
-    private <T> Account findAccount(String table){
+    private Account findAccount(String table, Long accountNumber){
+        //Retrieve account index from dictionary.
+        if(accountTracking.containsKey(accountNumber)){
+            Integer accountIndex = accountTracking.get(accountNumber);
+              Account myAccountDetails=accounts.get(accountIndex);
+              return  myAccountDetails;
+        }
         return null;
     }
+
 }
