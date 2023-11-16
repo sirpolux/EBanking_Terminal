@@ -89,13 +89,17 @@ public class InMemoryDB {
         }
         return response;
     }
-    private Account findAccount(String table, Long accountNumber){
+    private Account findAccount(Long accountNumber){
         //Retrieve account index from dictionary.
         if(accountTracking.containsKey(accountNumber)){
             Integer accountIndex = accountTracking.get(accountNumber);
               Account myAccountDetails=accounts.get(accountIndex);
               return  myAccountDetails;
         }
+        return null;
+    }
+
+    private ArrayList<Transaction> getAllTransaction(Long accountNumber){
         return null;
     }
 
