@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
@@ -13,6 +15,13 @@ public class Main {
         System.out.println(response);
         Response response1= inMemoryDB.command("CREATE","users",user);
         System.out.println(response1);
-
+        Scanner scanner1 = new Scanner(System.in); // Scanner
     }
+
+    static User createUser(Scanner scan){
+
+        return null;
+    }
+
+
 }
