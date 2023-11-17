@@ -19,8 +19,14 @@ public class Main {
     }
 
     static User createUser(Scanner scan){
+        User user = new User();
+        System.out.println("Thanks for showing your interest in opening an account with us\nPlease provide the required data below\n");
 
-        return null;
+        user.setName(getStringData(scan,"Enter your full name"));
+        user.setAge(getIntData(scan,"Age"));
+        user.setEmail(getStringData(scan,"Email"));
+        user.setGender(getStringData(scan,"Gender"));
+        return user;
     }
 
     static String getStringData (Scanner s, String msg){
