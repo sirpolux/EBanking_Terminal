@@ -23,5 +23,12 @@ public class Main {
         return null;
     }
 
+    static String getStringData (Scanner s, String msg){
+        System.out.print(msg+ ":  ");
+        return s.nextLine();
+    }
+
+
+
 
 }
