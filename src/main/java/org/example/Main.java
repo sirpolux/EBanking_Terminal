@@ -28,6 +28,11 @@ public class Main {
         return s.nextLine();
     }
 
+    static Integer getIntData(Scanner s, String msg){
+        System.out.print(msg+ ":  ");
+        return s.nextInt();
+    }
+
 
 
 
