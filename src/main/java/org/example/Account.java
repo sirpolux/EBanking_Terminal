@@ -4,6 +4,16 @@ public class Account {
     private User person;
     private long accountNumber;
     private long balance;
+
+    public String getPin() {
+        return pin;
+    }
+
+    public void setPin(String pin) {
+        this.pin = pin;
+    }
+
+    private String pin;
     public Account(){}
 
     public User getPerson() {
