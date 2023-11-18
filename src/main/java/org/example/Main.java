@@ -7,7 +7,7 @@ public class Main {
         System.out.println("Hello world!");
         User user =  new User();
         user.setAge(20);
-        user.setEmail("polux@gmail.com");
+        user.setPhoneNumber("polux@gmail.com");
         user.setName("Machong Paul");
 
         InMemoryDB inMemoryDB = new InMemoryDB();
@@ -24,7 +24,7 @@ public class Main {
 
         user.setName(getStringData(scan,"Enter your full name"));
         user.setAge(getIntData(scan,"Age"));
-        user.setEmail(getStringData(scan,"Email"));
+        user.setPhoneNumber(getStringData(scan,"Email"));
         user.setGender(getStringData(scan,"Gender"));
         return user;
     }

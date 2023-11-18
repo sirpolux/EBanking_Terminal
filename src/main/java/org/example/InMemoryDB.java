@@ -2,7 +2,6 @@ package org.example;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 public class InMemoryDB {
     private ArrayList<Transaction> transactions;
@@ -39,13 +38,13 @@ public class InMemoryDB {
                }
                //CHECK if Account email exists
                 User user = (User)data;
-                if(usersTracking.containsKey(user.getEmail())){
+                if(usersTracking.containsKey(user.getPhoneNumber())){
                     response.setMsg("User email already exists");
                     response.setStatus(0);
                 }else{
                     users.add(user);
-                    usersTracking.put(user.getEmail(),users.size()-1);
-                    response.setMsg("Account created for user:  "+ usersTracking.get(user.getEmail()));
+                    usersTracking.put(user.getPhoneNumber(),users.size()-1);
+                    response.setMsg("Account created for user:  "+ usersTracking.get(user.getPhoneNumber()));
                     response.setStatus(1);
                 }
             }
