@@ -14,7 +14,6 @@ public class Main {
     static User createUser(Scanner scan){
         User user = new User();
         System.out.println("Thanks for showing your interest in opening an account with us\nPlease provide the required data below\n");
-
         user.setName(getStringData(scan,"Enter your full name"));
         user.setAge(getIntData(scan,"Age"));
         user.setPhoneNumber(getStringData(scan,"Email"));
@@ -31,6 +30,10 @@ public class Main {
         System.out.print(msg+ ":  ");
         return s.nextInt();
     }
+    static Long getLongData(Scanner s, String msg){
+        System.out.print(msg+ ":  ");
+        return s.nextLong();
+    }
     static void instructions() {
         String[] command = new String[6];
         command[0] = "1 : Create account";
@@ -45,6 +48,19 @@ public class Main {
         }
     }
 
+    static Account createAccount(User user, Long openingBalance){
+        //get Account number;
+        Account account = new Account();
+        account.setBalance(openingBalance);
+        return null;
+    }
+
+    static Account debitAccount (Scanner scanner){
+        Long accountNumber =  getLongData(scanner,"Account Number");
+        String pin = getStringData(scanner,"Enter pin: ");
+        Long amount = getLongData(scanner,"Enter amount");
+        return null;
+    }
 
 
 
