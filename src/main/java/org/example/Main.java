@@ -5,17 +5,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
-        User user =  new User();
-        user.setAge(20);
-        user.setPhoneNumber("polux@gmail.com");
-        user.setName("Machong Paul");
 
-        InMemoryDB inMemoryDB = new InMemoryDB();
-        Response response= inMemoryDB.command("CREATE","users",user);
-        System.out.println(response);
-        Response response1= inMemoryDB.command("CREATE","users",user);
-        System.out.println(response1);
-        Scanner scanner1 = new Scanner(System.in); // Scanner
+
+
+
     }
 
     static User createUser(Scanner scan){
@@ -37,6 +30,19 @@ public class Main {
     static Integer getIntData(Scanner s, String msg){
         System.out.print(msg+ ":  ");
         return s.nextInt();
+    }
+    static void instructions() {
+        String[] command = new String[6];
+        command[0] = "1 : Create account";
+        command[1] = "2 : Make deposit";
+        command[2] = "3 : Withdrawals";
+        command[3] = "4 : Transfer funds";
+        command[4] = "5 : Transaction history";
+        command[5] = "6 : Exit";
+        System.out.println("Customers Support System");
+        for (String cmd : command) {
+            System.out.println(cmd);
+        }
     }
 
 
